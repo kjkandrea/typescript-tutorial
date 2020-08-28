@@ -25,3 +25,21 @@ node hello.js
 ```
 tsc hello.ts -watch
 ```
+
+## tsconfig.json
+
+init
+
+```
+tsc --init
+```
+
+지정된 범위내의 .ts파일을 tsconfig.json 설정으로 컴파일하기
+(-p === --project)
+
+```
+tsc -p ./
+```
+
+* `"noImplicitAny": true` : 엄격한 타입검사. any를 명시하지않으면 컴파일 해주지 않음
+* `"noImplicitAny": false` : 유연한 타입검사. any를 명시하지않아도 any로 취급해줌
