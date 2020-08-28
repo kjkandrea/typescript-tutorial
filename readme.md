@@ -19,3 +19,9 @@ hello.ts에 문제가 없다면 hello.js 파일이 생성된다. hello.js를 nod
 ```
 node hello.js
 ```
+
+## watch
+
+```
+tsc hello.ts -watch
+```
