@@ -1,0 +1,19 @@
+{
+  "name": "typescript-tutorial",
+  "version": "1.0.0",
+  "description": "hello typescript",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://kimjongkeun@github.com/kimjongkeun/typescript-tutorial.git"
+  },
+  "author": "andrea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimjongkeun/typescript-tutorial/issues"
+  },
+  "homepage": "https://github.com/kimjongkeun/typescript-tutorial#readme"
+}
