@@ -54,12 +54,20 @@ const hasType:Object = {
 
 any 타입은 제약이 없는 타입으로 어떠한 값도 받아들일 수 있다.
 
-```
+``` typescript
 let foo:any = "anything"
 ``` 
 
 any 로 이루어진 배열을 만들때는? 다음과 같이 사용한다
 
-```
+``` typescript
 let bar:any[] = [1, true, "string"]
 ```
+
+### 튜플 타입 (tuple type)
+
+튜플 타입은 n개의 요소로 이뤄진 배열에 각각 대응하는 타입을 의미한다.
+
+``` typescript
+let x:[string, number] = ["typescript", 1]
+``` 
