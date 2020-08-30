@@ -34,3 +34,32 @@ sudo npm i -g ts-node
 ```
 ts-node hello.ts
 ```
+
+## 타입 표기 (Type Annotation)
+
+변수 또는 값의 타입을 표기하기 위해 타입 표기를 사용한다. 
+타입 표기는 식별자 또는 값 뒤에 콜론(:)을 붙여 `value: type` 의 형태로 표기한다.
+
+``` typescript
+const typescript:string = "awesome"
+const hasType:Object = {
+    TypeScript: true
+    JavaScript: false
+}
+```
+
+## basic type
+
+### any
+
+any 타입은 제약이 없는 타입으로 어떠한 값도 받아들일 수 있다.
+
+```
+let foo:any = "anything"
+``` 
+
+any 로 이루어진 배열을 만들때는? 다음과 같이 사용한다
+
+```
+let bar:any[] = [1, true, "string"]
+```
