@@ -43,7 +43,7 @@ ts-node hello.ts
 ``` typescript
 const typescript:string = "awesome"
 const hasType:Object = {
-    TypeScript: true
+    TypeScript: true,
     JavaScript: false
 }
 ```
