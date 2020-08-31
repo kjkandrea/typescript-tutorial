@@ -1,5 +1,11 @@
 # 학습 리포지토리
 
+## typescript?
+
+타입스크립트는 자바스크립트의 슈퍼셋이다.
+타입스크립트는 컴파일 언어(Complied Language)이다.
+
+
 ## typescript 인스톨
 
 ```
