@@ -235,3 +235,28 @@ circle.printArea()
 ```
 
 `width`, `height`, `radius`가 각각 옵셔널 프로퍼티로 지정되어 특정 프로퍼티를 사용하지 않아도 문제가 발생하지 않는다.
+
+### 확장 (Extends)
+
+인터페이스는 ES6에 추가된 class와 같이 extends로 확장할 수 있다. 사용법은 `class`와 동일하다.
+
+``` typescript
+export {}
+
+interface Person {
+  name: string
+  age: number
+}
+
+interface Developer extends Person {
+  job: string
+}
+
+const developer: Developer = {
+  name: 'andrea',
+  age: 29,
+  job: 'front-end'
+}
+
+console.log(developer)
+```
