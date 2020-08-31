@@ -8,10 +8,14 @@ interface IPerson {
 class Person implements IPerson {
     name: string = "andrea"
 
+    constructor(name: string) {
+        this.name = name
+    }
+
     hello(): void {
         console.log('hello, %s', this.name)
     }
 }
 
-const person = new Person()
+const person = new Person('andrea')
 person.hello()
