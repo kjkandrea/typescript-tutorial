@@ -1,3 +1,5 @@
+export {}
+
 const personDefault : {name: string, age: number } = {
   name : 'Andrea',
   age: 29
