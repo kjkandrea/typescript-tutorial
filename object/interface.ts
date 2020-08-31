@@ -10,7 +10,7 @@ interface Person {
   age: number
 }
 
-const personInterface : Person = {
+const personInterface: Person = {
   name: 'Haebogoyang',
   age: 30
 }
