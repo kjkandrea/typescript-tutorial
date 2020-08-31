@@ -154,3 +154,84 @@ function printWord (arg: StringOrArray) : void {
 printWord(str) // 안, 녕
 printWord(arr) // 잘, 가
 ```
+
+## 인터페이스 (interface)
+
+객체가 특정한 타입의 프로퍼티 혹은 메소드를 가진다고 미리 선언하는 것이다.
+다음과 같이 사용한다.
+
+``` typescript
+interface Person {
+  name: string
+  age: number
+}
+
+const personInterface: Person = {
+  name: 'Haebogoyang',
+  age: 30
+}
+```
+
+`interface` 를 class에 사용하기 위해서는 `implements` 키워드를 이용한다.
+
+``` typescript
+interface IPerson {
+    name: string,
+    hello(): void
+}
+
+class Person implements IPerson {
+    name: string = "andrea"
+
+    hello(): void {
+        console.log('hello, %s', this.name)
+    }
+}
+```
+
+### 선택적 사용 (Optional)
+
+타입을 선언해두되, 선택적 구현을 하게 할 수 있을까? Optional 프로퍼티를 사용하면 된다.
+프로퍼티 뒤에 `?` 를 붙여주면 된다. 도형 class를 생성하는 예시를 살펴보자.
+
+``` typescript
+interface Shape {
+    width?: number
+    height?: number
+    radius?: number
+    printArea(): void
+}
+
+class Rectangle implements Shape {
+    width: number
+    height: number
+
+    constructor(width: number, height: number) {
+        this.width = width
+        this.height = height
+    }
+
+    printArea(): void {
+        console.log(this.width * this.height)
+    }
+}
+
+class Circle implements Shape {
+    radius: number
+
+    constructor(radius: number) {
+        this.radius = radius
+    }
+
+    printArea(): void {
+        console.log(Math.PI * this.radius ** 2)
+    }
+}
+
+const rectangle = new Rectangle(2, 2)
+const circle = new Circle(4)
+rectangle.printArea()
+circle.printArea()
+```
+
+`width`, `height`, `radius`가 각각 옵셔널 프로퍼티로 지정되어 특정 프로퍼티를 사용하지 않아도 문제가 발생하지 않는다.
