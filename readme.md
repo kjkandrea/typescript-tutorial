@@ -100,7 +100,7 @@ let x:[string, number] = ["typescript", 1]
 enum 타입은 숫자 열거형과 문자 열거형으로 나뉘는데, 주로 **유한한 자료를 열거 하고자 할 때** 사용한다. 
 가령 다국어 코드를 자료형으로 만들기 위해 `국가:국가 코드` 를 열거하고자 한 다면 다음과 같이 사용할 수 있다.
 
-```
+``` typescript
 enum LanguageCode {
     korean = 'ko',
     english = 'en',
@@ -111,4 +111,19 @@ enum LanguageCode {
 
 const localeCode: LanguageCode = LanguageCode.korean
 console.log(localeCode) // ko
+```
+
+## 타입 어설션 (Type assertions)
+
+'타입은 이것이다' 라고 컴파일러에게 명시적으로 알려주는 행위
+두가지 문법이 있다.
+* `변수 as 타입`
+* `<타입>변수`
+
+``` typescript
+let foo: any = "any foo"
+
+for (let word of foo as string) {
+    console.log(word)
+}
 ```
