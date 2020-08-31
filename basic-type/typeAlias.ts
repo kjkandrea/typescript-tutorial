@@ -8,5 +8,5 @@ function printWord (arg: StringOrArray) : void {
   }
 }
 
-printWord(str)
-printWord(arr)
+printWord(str) // 안, 녕
+printWord(arr) // 잘, 가
