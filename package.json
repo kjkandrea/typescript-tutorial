@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://kimjongkeun@github.com/kimjongkeun/typescript-tutorial.git"
+    "url": "git+https://kjkandrea@github.com/kjkandrea/typescript-tutorial.git"
   },
   "author": "andrea",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kimjongkeun/typescript-tutorial/issues"
+    "url": "https://github.com/kjkandrea/typescript-tutorial/issues"
   },
-  "homepage": "https://github.com/kimjongkeun/typescript-tutorial#readme"
+  "homepage": "https://github.com/kjkandrea/typescript-tutorial#readme"
 }
