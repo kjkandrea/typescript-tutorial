@@ -1,20 +1,11 @@
-interface Car {
-  name: string
-  speed: number
-  print(): void
-  hello(): string
+export {}
+
+interface Shape {
+  (width: number, height: number, radius?: number): void
 }
 
-const myCar: Car = {
-  name: 'spack',
-  speed: 100,
-  print: function () {
-    console.log(`내 차는 ${this.name}이고 속도는 ${this.speed}이에요.`)
-  },
-  hello(): string {
-    return "just hello"
-  }
+const getArea: Shape = (width, height) => {
+  console.log(width * height)
 }
 
-myCar.print()
-console.log(myCar.hello())
+getArea(2,2)
