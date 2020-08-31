@@ -94,4 +94,21 @@ let bar:any[] = [1, true, "string"]
 
 ``` typescript
 let x:[string, number] = ["typescript", 1]
-``` 
+```
+## enum 타입 (enum type)
+
+enum 타입은 숫자 열거형과 문자 열거형으로 나뉘는데, 주로 **유한한 자료를 열거 하고자 할 때** 사용한다. 
+가령 다국어 코드를 자료형으로 만들기 위해 `국가:국가 코드` 를 열거하고자 한 다면 다음과 같이 사용할 수 있다.
+
+```
+enum LanguageCode {
+    korean = 'ko',
+    english = 'en',
+    japanese = 'ja',
+    chinese = 'zh',
+    spanish = 'es'
+}
+
+const localeCode: LanguageCode = LanguageCode.korean
+console.log(localeCode) // ko
+```
