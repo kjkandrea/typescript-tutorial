@@ -127,3 +127,24 @@ for (let word of foo as string) {
     console.log(word)
 }
 ```
+
+## 타입 알리아스 (Type Alias)
+
+타입에 직접 이름을 부여하는 행위를 일컫는다.
+제너릭 타입, 유니온 타입에 이름을 붙힐 수 있는데, 유니온 타입에 유용하다.
+다음과 같이 쓴다.
+
+``` typescript
+type StringOrArray = string | Array<string> // type alias
+const str: StringOrArray = '안녕'
+const arr: StringOrArray = ['잘', '가']
+
+function printWord (arg: StringOrArray) : void {
+  for (let word of arg) {
+    console.log(word)
+  }
+}
+
+printWord(str) // 안, 녕
+printWord(arr) // 잘, 가
+```
