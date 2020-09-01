@@ -78,7 +78,7 @@ const hasType:Object = {
 }
 ```
 
-## basic type
+## 기본 타입 (Basic Type)
 
 ### any
 
@@ -439,4 +439,22 @@ wildGoose.getHabitat() // 기러기의 서식지는 순천만 갈대밭입니다
 
 [참고 : 추상화클래스와 인터페이스의 용도, 차이점, 공통점](https://marobiana.tistory.com/58)
 
+## 고급 타입 (Advanced Type)
+
+고급 타입이란 기본 타입을 바탕으로 새로운 타입을 정의하는 것이다.
+
+### 유니온 타입 (Union Type)
+
+2개 이상의 타입을 묶어 한 개의 타입으로 만드는 것이다.
+유니온 타입으로 선언된 변수는 나열된 타입 중 하나의 타입에 속한 값만 할당 받아야한다.
+
+``` typescript
+let year: string | number
+
+year = "2020년" // true
+year = 2020 // true
+// year = false // false
+```
+
+코드와 같이 `year` 에는 `string`, `number` 타입 만 할당 가능하다.
 
