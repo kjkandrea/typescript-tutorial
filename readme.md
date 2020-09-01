@@ -343,3 +343,32 @@ console.log(developer.getName()) // Andrea
 
 Person의 자식 클래스 Developer에서 `getName()` 을 통해 부모의 name 요소에 접근하여 값을 리턴한다.
 이처럼 protected 으로 선언된 요소는 **성속이 가능하다.**
+
+### private
+
+private 로 선언된 요소는 상속이 되지 않아 **자식 클래스에서 접근할 수 없다**. **객체를 통한 외부 접근도 불가하다.**
+
+``` typescript
+class Person {
+  protected name: string = 'Andrea'
+  private age: number = 29
+
+  getAge(): number {
+    return this.age
+  }
+}
+
+class Developer extends Person {
+  protected job: string = 'FE Developer'
+}
+
+const person = new Person()
+const developer = new Developer()
+
+console.log(person.getAge()) // 1. 29
+console.log(person.age) // 2. syntax error
+console.log(developer.age) // 3. syntax error
+```
+
+private 요소의 값을 출력하려면 직접적인 객체 접근이 허용되지 않기에, `1` 처럼 간접적으로 접근하여야 한다.
+`2`, `3` 과 같은 접근은 모두 불가하다.   
