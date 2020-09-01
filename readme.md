@@ -564,6 +564,38 @@ function fail() {
 fail()
 ```
 
+### this 타입
+
+this 타입은 this를 리턴하여 메소드 체이닝을 하거나, this를 통해 특정 참조 대상을 리턴하기 위하여 사용된다.
+흔히 사용하는 메소드체이닝을 구현하고자 할 때 다음과 같이 사용한다.
+
+``` typescript
+class Counter {
+  constructor(private count: number = 0) {
+    this.count = count
+    console.log(this) // Counter
+  }
+
+  getCount(): number {
+    return this.count
+  }
+
+  increment(): this {
+    this.count += 1
+    return this
+  }
+
+  decrement(): this {
+    this.count -= 1
+    return this
+  }
+}
+
+const counter = new Counter()
+
+console.log(counter.increment().increment().increment().decrement().getCount()) // 2
+```
+
 ## 제네릭 (Generic)
 
 제네릭은 클래스와 함수의 타입이 고정되는 것을 방지하고 재 사용 할 수 있는 요소를 선언할 수 있게 한다.
