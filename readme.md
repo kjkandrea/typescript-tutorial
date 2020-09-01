@@ -101,7 +101,7 @@ let bar:any[] = [1, true, "string"]
 ``` typescript
 let x:[string, number] = ["typescript", 1]
 ```
-## enum 타입 (enum type)
+### enum 타입 (enum type)
 
 enum 타입은 숫자 열거형과 문자 열거형으로 나뉘는데, 주로 **유한한 자료를 열거 하고자 할 때** 사용한다. 
 가령 다국어 코드를 자료형으로 만들기 위해 `국가:국가 코드` 를 열거하고자 한 다면 다음과 같이 사용할 수 있다.
@@ -119,7 +119,7 @@ const localeCode: LanguageCode = LanguageCode.korean
 console.log(localeCode) // ko
 ```
 
-## 타입 어설션 (Type assertions)
+### 타입 어설션 (Type assertions)
 
 '타입은 이것이다' 라고 컴파일러에게 명시적으로 알려주는 행위
 두가지 문법이 있다.
@@ -134,7 +134,7 @@ for (let word of foo as string) {
 }
 ```
 
-## 타입 알리아스 (Type Alias)
+### 타입 알리아스 (Type Alias)
 
 타입에 직접 이름을 부여하는 행위를 일컫는다.
 제너릭 타입, 유니온 타입에 이름을 붙힐 수 있는데, 유니온 타입에 유용하다.
@@ -155,7 +155,7 @@ printWord(str) // 안, 녕
 printWord(arr) // 잘, 가
 ```
 
-## 인터페이스 (interface)
+## (interface)
 
 객체가 특정한 타입의 프로퍼티 혹은 메소드를 가진다고 미리 선언하는 것이다.
 다음과 같이 사용한다.
@@ -260,3 +260,7 @@ const developer: Developer = {
 
 console.log(developer)
 ```
+
+## Class
+
+class
