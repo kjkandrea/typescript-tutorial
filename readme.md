@@ -503,6 +503,29 @@ on("click", (message => console.log(message))) // click , callback!
 on 함수의 첫번째 인수를 `eventType` 에 정의된 문자열 중 하나로 강제할 수 있다.
 이로서 on 함수는 정해진 문자열 리터럴 타입중 하나를 받아 동작하는것으로 인터페이스가 제한된다.
 
+### 룩업 타입 (lookup type)
+
+룩업 타입은 인덱스 접근 타입으로 불린다. 
+그 이유는 `keyof` 를 통해 타입 T(여러 타입으로 이루어진 타입)의 하위 타입을 생성해내기 때문이다.
+"name", "gender", "age" 문자열 리터럴 타입 중 하나를 할당 받을 수 있는 `pValue` 란 변수를 만들어야 한다고 가정해보자.
+이 때 `interface`와 `keyof`를 이용해 다음과 같이 key이름으로 문자열 리터럴 타입을 만들어 낼 수 있다.
+
+``` typescript
+interface Profile {
+  name: string
+  gender: string
+  age: number
+}
+type Profile1 = keyof Profile
+let pValue: Profile1
+pValue = 'name' // ok
+pValue = 'gender' // ok
+pValue = 'age' // ok
+// pValue = 'string' // TS2322: Type '"string"' is not assignable to type '"name" | "gender" | "age"'.
+
+``` 
+
+
 ## 제네릭 (Generic)
 
 제네릭은 클래스와 함수의 타입이 고정되는 것을 방지하고 재 사용 할 수 있는 요소를 선언할 수 있게 한다.
