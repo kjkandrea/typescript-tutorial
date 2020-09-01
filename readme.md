@@ -543,6 +543,27 @@ let foo: string|null
 foo = null
 ```
 
+## 네버 타입 (Never Type)
+
+네버 타입은 '닿을 수 없는 타입' 정도으로 이해할 수 있다. 네버 타입은 두 가지 상황에 사용한다.
+
+1. 함수에 닿을 수 없는 코드 영역이 있어 반환 값이 존재하지 않을 때
+2. 함수에 Throw 객체가 반환되어 오류가 발생할 때
+
+throw되는 함수에 리턴 타입을 명시할 때 주로 사용한다.
+
+``` typescript
+function error(message: string): never {
+  throw new Error(message)
+}
+
+function fail() {
+  return error('error!')
+}
+
+fail()
+```
+
 ## 제네릭 (Generic)
 
 제네릭은 클래스와 함수의 타입이 고정되는 것을 방지하고 재 사용 할 수 있는 요소를 선언할 수 있게 한다.
