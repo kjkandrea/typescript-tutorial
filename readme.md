@@ -525,6 +525,23 @@ pValue = 'age' // ok
 
 ``` 
 
+### non-nullable 타입
+
+`strictNullChecks`가 `true` 일 때 null을 할당할 수 없다.
+이를 non-nullable 타입이라 한다.
+
+``` typescript
+let foo: string
+foo = null // error
+foo = undefined // error
+```
+
+null을 할당하고자 한다면 유니온 타입으로 null을 허용 할 수 있다.
+
+``` typescript
+let foo: string|null
+foo = null
+```
 
 ## 제네릭 (Generic)
 
