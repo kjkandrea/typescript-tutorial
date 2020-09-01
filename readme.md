@@ -241,8 +241,6 @@ circle.printArea()
 인터페이스는 ES6에 추가된 class와 같이 extends로 확장할 수 있다. 사용법은 `class`와 동일하다.
 
 ``` typescript
-export {}
-
 interface Person {
   name: string
   age: number
@@ -271,16 +269,14 @@ typescript에서는 class를 통해 객체지향 프로그래밍을 할 수 있�
 우선 들어가기에 앞서 접근 제한자의 개요를 간단히 살펴보자.
 
 1. `public` 으로 선언된 요소는 상속이 가능하다. 객체를 통해 외부 접근을 할 수 있다.
-2. `private` 으로 선언된 요소는 상속이 되지 않아 자식 클래스에서 접근할 수 없다. 객체를 통한 외부 접근도 불가하다.
-3. `protected` 으로 선언된 요소는 성속이 가능하다. 객체를 통한 외부 접근은 불가 하다.
+2. `protected` 으로 선언된 요소는 성속이 가능하다. 객체를 통한 외부 접근은 불가 하다.
+3. `private` 으로 선언된 요소는 상속이 되지 않아 자식 클래스에서 접근할 수 없다. 객체를 통한 외부 접근도 불가하다.
 
 ### public
 
 public 으로 선언된 요소는 다음과 같이 객체에 자유롭게 접근할 수 있다.
 
 ``` typescript
-export {}
-
 class Person {
   public name: string
 
@@ -300,3 +296,50 @@ console.log(person) // 3. Person { name: 'Haebogoyang' }
 따라서 person 객체는 `3` 과 같은 결과가 나타난다.
 
 public 으로 선언된 요소에는 **객체를 통해 외부 접근을 할 수 있다.**
+
+### protected
+
+protected 으로 선언된 요소는 public 처럼 객체를 통해 직접적인 접근이 불가하다.
+다음과 같이 동일하게 실행하여보면..
+
+``` typescript
+class Person {
+  protected name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
+const person = new Person("Andrea")
+person.name = "Haebogoyang" // protected 으로 선언된 요소이기에 제어 불가. 문법 오류
+
+console.log(person) // Person { name: 'Andrea' }
+```
+
+```
+Property 'name' is protected and only accessible within class 'Person' and its subclasses.
+```
+
+보호되어 객체를 통해 엑세스 할 수 없다는 에러가 출력된다.
+
+단, 선언 된 요소는 상속이 가능하다. 예제를 통해 살펴보자.
+
+```
+class Person {
+  protected name: string = 'Andrea'
+}
+
+class Developer extends Person {
+  getName(): string {
+    return this.name
+  }
+}
+
+const developer = new Developer()
+
+console.log(developer.getName()) // Andrea
+```
+
+Person의 자식 클래스 Developer에서 `getName()` 을 통해 부모의 name 요소에 접근하여 값을 리턴한다.
+이처럼 protected 으로 선언된 요소는 **성속이 가능하다.**
