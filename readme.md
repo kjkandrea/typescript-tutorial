@@ -477,3 +477,28 @@ console.log(myIndexOf("andrea", "e"))
 첫 번째 인자의 타입을 `typeof`로 검사하여 타입이 number 일 경우 -1을 return 시키고,
 string 일 경우 `indexOf`메서드를 를 통해 검사하여 리턴한다.
 이 때 if 문의 역할이 타입 가드 이다.
+
+### 문자열 리터럴 타입 (Literal Type)
+
+문자열 리터럴 타입은 타입에 정의한 문자열만 할당받을 수 있는 타입이다.
+
+``` typescript
+var name: "andrea" = "andrea"
+// var name: "andrea" = "haebogoyang" // error
+``` 
+
+이처럼 한가지 문자열만 지정하면 활용성이 없어 보이나 유니언 타입과 결합해 사용한다면 다음과 같이 사용할 수 있다.
+
+``` typescript
+type eventType = "click"|"mouseover"|"mouseout"
+
+const on = (event: eventType, callback: (message: string) => void): void => {
+  console.log(event)
+  callback("callback!")
+}
+
+on("click", (message => console.log(message))) // click , callback!
+```
+
+on 함수의 첫번째 인수를 `eventType` 에 정의된 문자열 중 하나로 강제할 수 있다.
+이로서 on 함수는 정해진 문자열 리터럴 타입중 하나를 받아 동작하는것으로 인터페이스가 제한된다.
