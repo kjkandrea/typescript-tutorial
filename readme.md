@@ -458,3 +458,22 @@ year = 2020 // true
 
 코드와 같이 `year` 에는 `string`, `number` 타입 만 할당 가능하다.
 
+### 타입 가드 (Type Guard)
+
+타입 가드는 유니온 타입에 속한 타입이 특정 타입인지 검사해 타입의 안정성을 확보하는 방법이다.
+유니온 타입은 1개 이상의 타입이 들어 올 수 있으므로, 타입 별로 다른 액션을 일으키거나 할 때에는 타입 가드가 필요하다.
+예시를 들어보면..
+
+``` typescript
+const myIndexOf = (value: string|number, key: string): number => {
+  if (typeof value === 'number') return -1
+
+  return value.indexOf(key)
+}
+
+console.log(myIndexOf("andrea", "e"))
+```
+
+첫 번째 인자의 타입을 `typeof`로 검사하여 타입이 number 일 경우 -1을 return 시키고,
+string 일 경우 `indexOf`메서드를 를 통해 검사하여 리턴한다.
+이 때 if 문의 역할이 타입 가드 이다.
