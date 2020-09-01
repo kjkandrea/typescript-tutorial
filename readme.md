@@ -502,3 +502,23 @@ on("click", (message => console.log(message))) // click , callback!
 
 on 함수의 첫번째 인수를 `eventType` 에 정의된 문자열 중 하나로 강제할 수 있다.
 이로서 on 함수는 정해진 문자열 리터럴 타입중 하나를 받아 동작하는것으로 인터페이스가 제한된다.
+
+## 제네릭 (Generic)
+
+제네릭은 클래스와 함수의 타입이 고정되는 것을 방지하고 재 사용 할 수 있는 요소를 선언할 수 있게 한다.
+제네릭의 장점은 다음과 같다.
+
+* 제네릭의 타입 검사를 컴파일 시간에 진행하여 타입 안정성을 보장한다.
+* 캐스팅과 관련한 코드를 제거할 수 있다.
+* 제네릭 로직을 이용해 재사용이 가능한 코드를 만들 수 있다.
+
+가장 기본적인 제네릭의 형태는 다음과 같다.
+
+``` typescript
+function hello<T>(message: T): T {
+  return message
+}
+
+hello('Andrea'), // Generic 타입을 쓰지 않으면 T로 추론
+hello<string>('Andrea') // Generic 타입을 쓰면 T를 확인
+```
