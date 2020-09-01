@@ -263,4 +263,40 @@ console.log(developer)
 
 ## Class
 
-class
+`class`의 기본적인 사용법은 ES6의 그것과 동일하다. `interface` 를 통해 타입을 미리 선언해둔 후 class 를 작성할 수 있을 것이다.
+typescript에서는 class를 통해 객체지향 프로그래밍을 할 수 있도록 보다 많은 기능을 제공한다.
+
+## Class의 접근 제한자 (access modifier)
+
+우선 들어가기에 앞서 접근 제한자의 개요를 간단히 살펴보자.
+
+1. `public` 으로 선언된 요소는 상속이 가능하다. 객체를 통해 외부 접근을 할 수 있다.
+2. `private` 으로 선언된 요소는 상속이 되지 않아 자식 클래스에서 접근할 수 없다. 객체를 통한 외부 접근도 불가하다.
+3. `protected` 으로 선언된 요소는 성속이 가능하다. 객체를 통한 외부 접근은 불가 하다.
+
+### public
+
+public 으로 선언된 요소는 다음과 같이 객체에 자유롭게 접근할 수 있다.
+
+``` typescript
+export {}
+
+class Person {
+  public name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+}
+
+const person = new Person("Andrea") // 1.
+person.name = "Haebogoyang" // 2. public 으로 선언된 요소이기에 제어 가능
+
+console.log(person) // 3. Person { name: 'Haebogoyang' }
+```
+
+`1`에서 constructor를 통해 인자를 넘겨 `name`을 정의 했으나,
+`2`에서 person 객체에 직접적으로 접근하여 값을 변경 하였다.
+따라서 person 객체는 `3` 과 같은 결과가 나타난다.
+
+public 으로 선언된 요소에는 **객체를 통해 외부 접근을 할 수 있다.**
