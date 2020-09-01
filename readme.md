@@ -371,4 +371,72 @@ console.log(developer.age) // 3. syntax error
 ```
 
 private 요소의 값을 출력하려면 직접적인 객체 접근이 허용되지 않기에, `1` 처럼 간접적으로 접근하여야 한다.
-`2`, `3` 과 같은 접근은 모두 불가하다.   
+`2`, `3` 과 같은 접근은 모두 불가하다.
+
+## 추상 클래스 (Abstract Class)
+
+추상 클래스는 실체 클래스의 공통적인 부분을 추출해 어느정도 규격을 잡아놓은 추상적인 클래스이다.
+[참고 : 추상 클래스 란?](https://limkydev.tistory.com/188)
+
+추상 클래스를 사용하는 순서는 다음과 같다.
+
+1. 구현되지 않은 추상 클래스(abstract class)를 선언한다.
+2. 공통적으로 사용될 변수의 구조를 abstract 으로 정의한다.
+3. 공통적으로 사용될 메서드의 구조를 abstract 으로 정의한다.
+4. 자식 클래스에서 추상 클래스를 상속하여 추상 클래스의 설계 대로 구현한다.
+
+소스코드를 통해 추상클래스의 사용에 대하여 살펴보자.
+
+``` typescript
+export {}
+
+abstract class AbstractBird {
+  public abstract birdName: string
+  public abstract habitat: string
+  public abstract flySound(sound: string): void
+
+  fly(): void {
+    this.flySound("파닥파닥")
+  }
+
+  getHabitat(): void {
+    console.log(`${this.birdName}의 서식지는 ${this.habitat}입니다.`)
+  }
+}
+
+class WildGoose extends AbstractBird {
+  // 추상 변수를 상속함
+  constructor(public birdName: string, public habitat: string) {
+    super();
+  }
+
+  // 추상 메서드를 오버라이딩
+  flySound(sound: string) {
+    console.log(`${this.birdName}가 ${sound} 날아갑니다.`)
+  }
+}
+
+const wildGoose = new WildGoose("기러기", "순천만 갈대밭")
+wildGoose.fly() // 기러기가 파닥파닥 날아갑니다.
+wildGoose.getHabitat() // 기러기의 서식지는 순천만 갈대밭입니다.
+```
+
+추상 클래스 `AbstractBird` 에 공통 기능을 담은 구현 메서드 `fly()` 를 추가하고 자식 클래스 `WildGoose`가 세세한 부분을 구현한다.
+
+한가지 짚고 넘어가자. 얼핏 보기에는 인터페이스(Interface)와 비슷한것 같은데 차이점은 무엇일까?
+
+## Abstract Class vs Interface
+
+추상 클래스와 인터페이스는 존재 목적이 다르다.
+추상 클래스의 목적은 해당 추상 클래스를 상속 받아서 기능을 이용하고, 확장 시키는데에 있다.
+
+반면의 인터페이스는 메서드에 대한 껍데기만 있는데, 그 이유는 함수의 구현을 강제하기 위해서이다.
+구현을 강제함으로써 구현된 객체의 같은 동작을 보장할 수 있다.
+
+추상클래스는 말그대로 클래스이고, interface는 구현하기 전에 메소드에 대해 명세를 하는 것이라고 볼 수 있다.
+'이러이러한 메소드를 쓸 것이다.' 인터페이스에 선언을 해놓고, 가져다가 반드시 선언된 그대로 모두 구현하면 되는게 인터페이스이고,    
+이러이러한 메소드가 있지만 가져다 쓰거나 오버라이드 하거나, abstract가 붙은 메소드는 반드시 구현하면 되는게 abstract class이다.
+
+[참고 : 추상화클래스와 인터페이스의 용도, 차이점, 공통점](https://marobiana.tistory.com/58)
+
+
