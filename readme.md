@@ -155,7 +155,7 @@ printWord(str) // 안, 녕
 printWord(arr) // 잘, 가
 ```
 
-## (interface)
+## 인터페이스 (interface)
 
 객체가 특정한 타입의 프로퍼티 혹은 메소드를 가진다고 미리 선언하는 것이다.
 다음과 같이 사용한다.
