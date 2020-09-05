@@ -36,7 +36,18 @@ const total = sum(60, '30')
 > ⚠️ Argument of type '"30"' is not assignable to parameter of type 'number'.
 
 코드를 작성하는 시점에서 코드 수준에서 오류를 포착 할 수 있다.
-이처럼 타입스크립트는 정적 타입을 지정함으로서 **보다 예상 가능한 코드를 작성할 수 있다.**  
+이처럼 타입스크립트는 정적 타입을 지정함으로서 **보다 예상 가능한 코드를 작성할 수 있다.**
+
+### 2. 코드 어시스트
+
+타입스크립트로 타입 정보를 제공하면 코드 어시스트를 받을 수 있다.
+
+아래 이미지의 경우 `arr` 변수에 값이 대입되지 않았지만,  
+array 타입이 들어올 것으로 사전에 타입을 명시하였으므로 배열관련 메서드들이 자동으로 추천 된다.
+
+![intellisense](https://user-images.githubusercontent.com/32591477/92305865-1bf7a900-efc6-11ea-9671-891c7896f6d7.png)
+
+
 
 ## typescript 인스톨
 
