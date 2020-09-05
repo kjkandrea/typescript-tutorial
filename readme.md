@@ -47,6 +47,48 @@ array 타입이 들어올 것으로 사전에 타입을 명시하였으므로 �
 
 ![intellisense](https://user-images.githubusercontent.com/32591477/92305865-1bf7a900-efc6-11ea-9671-891c7896f6d7.png)
 
+### 3. class 기반 객체 지향 프로그래밍 지원
+
+타입스크립트는 `interface`, 접근제한자, `readonly` 등
+javascript에 비하여 보다 심화된 클래스 문법을 제공한다. 
+
+다음 코드는 typscript 에서 지원하는 다양한 기능을 바탕으로 작성한 class의 예시이다.
+
+#### 엑셀 기능이 있는 차 만들기
+
+``` typescript
+interface ICar {
+  honk(): void
+  accel(speed: number): void
+  getSpeed(): number
+}
+
+class Car implements ICar {
+  private speed: number
+  constructor(private name: string) {
+    this.name = name
+    this.speed = 0
+  }
+
+  public honk(): void {
+    console.log('부우우웅')
+  }
+
+  public accel(speed: number): void {
+    this.speed += speed
+  }
+
+  public getSpeed(): number {
+    return this.speed
+  }
+}
+
+const car = new Car('spark')
+car.honk() // 부우우웅
+car.accel(30)
+car.accel(80)
+console.log(car.getSpeed()) // 110
+```
 
 
 ## typescript 인스톨

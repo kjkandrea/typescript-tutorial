@@ -1,6 +1,5 @@
 export {}
-// Class로 엑셀 기능이 있는 차 만들기
-
+// 엑셀 기능이 있는 차 만들기
 interface ICar {
   honk(): void
   accel(speed: number): void
@@ -28,7 +27,7 @@ class Car implements ICar {
 }
 
 const car = new Car('spark')
-car.honk()
+car.honk() // 부우우웅
 car.accel(30)
 car.accel(80)
-console.log(car.getSpeed())
+console.log(car.getSpeed()) // 110
