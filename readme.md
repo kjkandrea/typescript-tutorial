@@ -2,9 +2,41 @@
 
 ## typescript?
 
-타입스크립트는 자바스크립트의 슈퍼셋이다.
-타입스크립트는 컴파일 언어(Complied Language)이다.
+* 타입스크립트는 자바스크립트의 슈퍼셋이다. 
+* 타입스크립트는 자바스크립트의 새로운 기능을 제공한다.
+* 타입스크립트는 컴파일 언어(Complied Language)이다.
 
+## typescript의 장점
+
+### 1. 정적 타입 : 컴파일 단계에서 오류 포착
+
+두개의 숫자를 인자로 받아 합계를 반환하는 `sum` 이란 함수를 살펴보자. 
+
+``` javascript
+function sum (arg1, arg2) {
+    return arg1 + arg2
+}
+
+const total = sum(60, '30')
+```
+
+두 인자의 합인 `total`을 구할 때 javascript는 아무런 경고없이 `6030` 이란 값을 반환할 것이다.
+
+반면 타입스크립트로 동일한 함수를 정적 타입을 명시하여 작성하면...
+
+``` typescript
+function sum (arg1: number, arg2: number): number {
+  return arg1 + arg2
+}
+
+const total = sum(60, '30')
+// Argument of type '"30"' is not assignable to parameter of type 'number'.
+```
+
+> ⚠️ Argument of type '"30"' is not assignable to parameter of type 'number'.
+
+코드를 작성하는 시점에서 코드 수준에서 오류를 포착 할 수 있다.
+이처럼 타입스크립트는 정적 타입을 지정함으로서 **보다 예상 가능한 코드를 작성할 수 있다.**  
 
 ## typescript 인스톨
 
