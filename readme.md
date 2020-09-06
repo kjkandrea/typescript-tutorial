@@ -90,6 +90,56 @@ car.accel(80)
 console.log(car.getSpeed()) // 110
 ```
 
+## 간단한 문법 소개 (기본 문법 살펴보기)
+
+### 1. 기본 타입
+
+타입 표기는 식별자 또는 값 뒤에 콜론(:)을 붙여 `value: type` 의 형태로 표기한다.
+
+``` typescript
+// 문자열 타입
+let title: string = "타이틀 입니다."
+
+// 숫자 타입
+let score: number = 50
+
+// 불린 타입
+let complate: boolean
+complate = true
+complate = false
+```
+
+### 2. 고급 타입
+
+고급 타입이란 기본 타입을 바탕으로 새로운 타입을 정의하는것을 의미한다.
+
+#### 유니언 타입 (Union Type)
+
+유니언 타입은 2개 이상의 타입을 하나의 타입으로 정의한 타입이다.
+유니언 타입을 선언할 때는 파이프(|)를 타입 명 사이에 넣는다.
+
+``` typescript
+// 유니온 타입 (union type)
+let name: string|null = null
+name = 'kim'
+```
+
+#### 문자열 리터럴 타입 (Literal Type)
+
+문자열 리터럴 타입은 타입에 정의한 문자열만 할당 받을 수 있게하는 타입입니다.
+
+``` typescript
+type Status = 'open'|'close'
+let issue: Status
+
+issue = 'open'
+issue = 'close'
+issue = 'pending' // error
+```
+
+### 3. 타입 알리아스 (Type Alias)
+
+
 
 ## typescript 인스톨
 
