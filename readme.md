@@ -168,7 +168,64 @@ Status에 대한 정보가 토글되어 'open', 'close' 둘 중 하나의 값을
 
 ![class table](https://user-images.githubusercontent.com/32591477/92319900-1e0a4800-f058-11ea-9a61-681ed53c413b.jpeg)
 
+#### 인터페이스 (Interface)
 
+인터페이스란 객체가 특정한 타입의 프로퍼티 혹은 메소드를 가진다고 미리 선언하는 것이다.
+다음 소스에서는 `IPerson` 이란 인터페이스를 선언하고, 이 인터페이스의 설계를 토대로 `Person` 클래스가 정의 된 것을 볼 수 있다.
+
+``` typescript
+interface IPerson {
+  name: string,
+  hello(): void
+}
+
+class Person implements IPerson {
+  name: string
+
+  constructor(name: string) {
+    this.name = name
+  }
+
+  hello(): void {
+    console.log('hello, %s', this.name)
+  }
+}
+
+const andrea = new Person('andrea')
+andrea.hello() // hello, andrea
+```
+
+#### 접근 제한자 (Access Modifer)
+
+접근 제한자는 `public`, `protected`, `private` 가 있다.
+객체에 외부 접근이 허용되는지, 상속 관계에서 접근이 허용되는지에 대한 제한자 이다.
+
+``` typescript
+export {}
+
+class Person {
+  protected name: string = 'Andrea'
+  private age: number = 29
+
+  public getAge(): number {
+    return this.age
+  }
+}
+
+class Developer extends Person {
+  public job: string = 'FE Developer'
+}
+
+const person = new Person()
+const developer = new Developer()
+
+person.getAge() // 29
+developer.getAge() // 29
+developer.job // FE Developter
+
+person.name // error
+developer.age // error
+```
 
 ## typescript 인스톨
 
