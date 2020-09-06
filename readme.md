@@ -126,7 +126,7 @@ name = 'kim'
 
 #### 문자열 리터럴 타입 (Literal Type)
 
-문자열 리터럴 타입은 타입에 정의한 문자열만 할당 받을 수 있게하는 타입입니다.
+문자열 리터럴 타입은 타입에 정의한 문자열만 할당 받을 수 있게하는 타입이다.
 
 ``` typescript
 type Status = 'open'|'close'
@@ -139,6 +139,28 @@ issue = 'pending' // error
 
 ### 3. 타입 알리아스 (Type Alias)
 
+타입 알리아스는 기존 타입에 새로운 **별명** 을 짓는것이다.
+단일 타입에 별명을 지을 경우는 특별한 이점이 없다.
+주로 유니온 타입과 함께 사용한다.
+
+``` typescript
+type Status = 'open'|'close'
+let issue: Status = 'open'
+
+function setIssueStatus(arg: Status): void {
+  issue = arg
+}
+
+setIssueStatus('close')
+console.log(issue) // close
+```
+
+위 예제에서는 `issue`란 변수에 Status 별명이 할당되어 'open', 'close'외에는 어떠한 값도 할당할 수 없다.
+
+아래의 이미지는 issue에 새로운 값을 할당하는 모습이다.
+Status에 대한 정보가 토글되어 'open', 'close' 둘 중 하나의 값을 할당하여야 한다고 알려 준다.
+
+![alias guide](https://user-images.githubusercontent.com/32591477/92319393-a259cc80-f052-11ea-98bb-f6047231d218.png)
 
 
 ## typescript 인스톨
