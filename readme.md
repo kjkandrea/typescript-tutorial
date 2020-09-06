@@ -162,6 +162,13 @@ Status에 대한 정보가 토글되어 'open', 'close' 둘 중 하나의 값을
 
 ![alias guide](https://user-images.githubusercontent.com/32591477/92319393-a259cc80-f052-11ea-98bb-f6047231d218.png)
 
+### 4. 클래스 (Class)
+
+타입스크립트는 기존 ES6 class 문법에서 보다 확장된 객체 지향 프로그래밍을 지원합니다. 
+
+![class table](https://user-images.githubusercontent.com/32591477/92319900-1e0a4800-f058-11ea-9a61-681ed53c413b.jpeg)
+
+
 
 ## typescript 인스톨
 
